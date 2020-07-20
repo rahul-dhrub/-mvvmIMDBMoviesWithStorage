@@ -10,7 +10,7 @@ class MovieDbRepository(private val dataSource: DbDataSource) {
     fun getMovies(): LiveData<List<Movie>> {
         return Transformations.map(dataSource.movies()){
             it.map {itItem ->
-                Movie(id = itItem.id,likeCount = itItem.likeCount,original_title = itItem.name ,release_date = itItem.date, poster_path = itItem.photo)
+                Movie(id = itItem.id,likeCount = itItem.likeCount,original_title = itItem.name ,release_date = itItem.date, posterPath = itItem.photo)
             }
         }
     }
@@ -18,7 +18,7 @@ class MovieDbRepository(private val dataSource: DbDataSource) {
     suspend fun sync(movieList:List<Movie>){
         dataSource.deleteMovies()
         dataSource.addMovies(movieList.map {
-            MovieDTO(it.id,it.likeCount,it.original_title ,it.release_date,it.poster_path)
+            MovieDTO(it.id,it.likeCount,it.original_title ,it.release_date,it.posterPath)
         })
     }
 }

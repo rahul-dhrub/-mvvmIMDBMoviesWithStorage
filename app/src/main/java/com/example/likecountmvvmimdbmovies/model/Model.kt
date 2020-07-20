@@ -1,5 +1,6 @@
 package com.example.likecountmvvmimdbmovies.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
@@ -9,7 +10,8 @@ data class Movie(
     var popularity: Double =0.0,
     var vote_count: Int =0,
     var video: Boolean = false,
-    var poster_path: String = "",
+    @SerializedName("poster_path")
+    var posterPath: String = "",
     var id: Int =0,
     var adult: Boolean = false,
     var backdrop_path: String ="",

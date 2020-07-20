@@ -71,7 +71,7 @@ class MovieAdapter(private var movies: List<Movie>) :
             textViewDate.text = movie.release_date
             textViewLike.text = (movie.likeCount).toString()
             Glide.with(imageView.context)
-                .load("https://image.tmdb.org/t/p/original" + movie.poster_path).into(imageView)
+                .load("https://image.tmdb.org/t/p/original" + movie.posterPath).into(imageView)
         }
     }
 }
